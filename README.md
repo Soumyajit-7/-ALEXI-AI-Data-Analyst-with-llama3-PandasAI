@@ -10,7 +10,6 @@ Features
 - Upload a CSV file to start the analysis
 - Ask questions about the data using a text area
 - Receive answers based on the analysis performed by LLaMA 3 and Pandas AI
-- Background image set using a PNG file
 
 Usage
 
@@ -18,12 +17,6 @@ Usage
 2. Ask a question about the data in the text area
 3. Click the "Ask" button to receive an answer
 4. The answer will be displayed below the text area
-
-Technical Details
-
-- Built using Streamlit, LLaMA 3 70b from Groq, and Pandas AI
-- Uses the langchain_groq library to interact with LLaMA 3
-- Uses the pandasai library to perform data analysis
 
 Acknowledgments
 
