@@ -1,0 +1,10 @@
+pandas
+pandasai
+streamlit
+pyyaml
+scikit-learn
+langchain_groq
+python-dotenv
+requests
+streamlit-lottie
+pybase64
