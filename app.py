@@ -92,7 +92,12 @@ if uploaded_file is not None:
             with st.spinner(random.choice(messages)):
 
                 st.write(agent.chat(prompt))
+st.header("Visualizations")
 
+# Display the image
+
+
+st.image("/opt/render/project/src/exports/charts/temp_chart.png", use_column_width=True)
 
 
 
