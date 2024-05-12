@@ -10,7 +10,15 @@ import sklearn
 import langchain_groq
 from dotenv import load_dotenv
 import os
+import uuid
 from streamlit_lottie import st_lottie
+
+# Generate a unique user-defined path
+user_defined_path = f"images/{uuid.uuid4()}"
+
+# Create the directory if it doesn't exist
+if not os.path.exists("images"):
+    os.makedirs("images")
 
 st.set_page_config(layout='wide')
 
@@ -84,7 +92,8 @@ if uploaded_file is not None:
     st.write(data.head(5))
     st.write("First 5 rows")
 
-    agent = Agent(data, config={"llm": model})
+    agent = Agent(data, config={"llm": model, "save_charts": True,
+    "save_charts_path": user_defined_path,})
     prompt = st.text_area("Lets talk with the data: ")
     
     if st.button("Ask"):
@@ -96,8 +105,14 @@ st.header("Visualizations")
 
 # Display the image
 
+try:
+    for i in os.listdir(user_defined_path):
+        if os.path.isfile(os.path.join(user_defined_path, i)):
+            st.image(os.path.join(user_defined_path, i), use_column_width=True)
+except Exception as e:
+    st.write("No visualizations to display")
 
-st.image("/opt/render/project/src/exports/charts/temp_chart.png", use_column_width=True)
+# st.image("/opt/render/project/src/exports/charts/temp_chart.png", use_column_width=True)
 
 
 
